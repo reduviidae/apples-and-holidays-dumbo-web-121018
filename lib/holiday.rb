@@ -84,11 +84,12 @@ def all_supplies_in_holidays(holiday_hash)
     # binding.pry
     puts "#{string_seasons}:"
     holidays.map do |holiday, supply_arrays|
-      string_holidays = holiday.to_s.gsub("_", " ").capitalize
-      if string_holidays[4] == "y"
-        string_holidays.gsub("y", "Y")
+      array_holidays = holiday.to_s.split("_")
+      string_holidays = array_holidays.map do |holidays|
+        # binding.pry
+        string_holidays = holidays.capitalize
       end
-      puts "  #{string_holidays}: #{supply_arrays.join(", ")}"
+      puts "  #{string_holidays.join(" ")}: #{supply_arrays.join(", ")}"
     end
   end
 end
